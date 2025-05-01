@@ -1,0 +1,92 @@
+{
+  "name": "boilerplate-react-vite",
+  "description": "A React boilerplate powered by Vite builder",
+  "version": "1.2.1",
+  "author": "Adeonir Kohl",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adeonir/boilerplate-react-vite.git"
+  },
+  "keywords": [
+    "boilerplate",
+    "react",
+    "vite",
+    "vitest",
+    "styled-components",
+    "react-router",
+    "storybook",
+    "typescript"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ci": "vitest --run",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "typecheck": "tsc",
+    "storybook": "storybook dev -p 6006",
+    "storybook:build": "storybook build",
+    "prepare": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "app/**/*.{ts,tsx}": [
+      "yarn tsc",
+      "yarn eslint --fix",
+      "yarn prettier --write",
+      "yarn vitest related"
+    ]
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-router-dom": "6.8.1",
+    "styled-components": "5.3.6",
+    "styled-media-query": "2.1.2",
+    "vite-plugin-svgr": "2.4.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "7.4.6",
+    "@storybook/addon-essentials": "7.4.6",
+    "@storybook/addon-interactions": "7.4.6",
+    "@storybook/addon-links": "7.4.6",
+    "@storybook/react": "7.4.6",
+    "@storybook/react-vite": "7.4.6",
+    "@storybook/testing-library": "0.2.2",
+    "@testing-library/jest-dom": "5.16.5",
+    "@testing-library/react": "14.0.0",
+    "@testing-library/react-hooks": "8.0.1",
+    "@testing-library/user-event": "14.4.3",
+    "@types/node": "18.14.0",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "@types/styled-components": "5.1.26",
+    "@types/testing-library__jest-dom": "5.14.5",
+    "@typescript-eslint/eslint-plugin": "5.52.0",
+    "@typescript-eslint/parser": "5.52.0",
+    "@vitejs/plugin-react": "3.1.0",
+    "eslint": "8.34.0",
+    "eslint-config-prettier": "8.6.0",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-react": "7.32.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "husky": "8.0.3",
+    "jsdom": "21.1.0",
+    "lint-staged": "13.1.2",
+    "prettier": "2.8.4",
+    "storybook": "7.4.6",
+    "typescript": "4.9.5",
+    "vite": "4.1.2",
+    "vite-tsconfig-paths": "4.0.5",
+    "vitest": "0.28.5"
+  }
+}
