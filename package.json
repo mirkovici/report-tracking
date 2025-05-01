@@ -20,8 +20,8 @@
   ],
   "scripts": {
     "dev": "vite",
-    "dev:server": "ts-node --project tsconfig.server.json server/index.ts",
-    "dev:all": "concurrently  \"npm run dev\"  &&  \"npm run dev:server\"",
+    "dev:server": "ts-node --project tsconfig.server.json src/server/index.ts",
+    "dev:all": "concurrently  \"npm run dev\" \"npm run dev:server\"",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest",
