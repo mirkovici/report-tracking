@@ -18,8 +18,20 @@ import {
 } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import { Report, ReportService } from '~/lib/ReportService';
-import { OpenAIService } from '~/lib/OpenAIService';
+import { OpenAIService, OpenAIMessage } from '~/lib/OpenAIService';
 
+const handleChat = async (content: string) :Promise<string> => {
+  const messages: OpenAIMessage[] = [
+    { role: 'user', content },
+  ];
+
+  try {
+    const response = await OpenAIService.sendMessage({ messages });
+    return response.choices[0].message.content;
+  } catch (error) {
+    return "error";
+  }
+};
 export default function Reports() {
   const [reports, setReports] = useState<Report[]>([]);
   const [search, setSearch] = useState('');
@@ -27,6 +39,7 @@ export default function Reports() {
   const [editing, setEditing] = useState<Report | null>(null);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [summarize, setSummarize] = useState('');
   const [loadingAI, setLoadingAI] = useState(false);
 
   useEffect(() => {
@@ -62,13 +75,26 @@ export default function Reports() {
     refreshReports();
   };
 
+  const handleChat = async () :Promise<string> => {
+    const messages: OpenAIMessage[] = [
+      { role: 'user', content },
+    ];
+  
+    try {
+      const response = await OpenAIService.sendMessage({ messages });
+      return response.choices[0].message.content;
+    } catch (error) {
+      return "error";
+    }
+  };
+
   const handleGenerateDraft = async () => {
     const prompt = ('Enter a prompt for the AI to generate a report draft:');
     if (!prompt) return;
     setLoadingAI(true);
     try {
-      const result = await OpenAIService.generateDraft(prompt);
-      setContent(result);
+      const result = await handleChat();
+      setSummarize(result);
     } catch (err) {
       alert('Failed to generate draft.');
     }
@@ -79,8 +105,8 @@ export default function Reports() {
     if (!content.trim()) return alert('Content is empty!');
     setLoadingAI(true);
     try {
-      const result = await OpenAIService.summarizeContent(content);
-      alert(`Summary:\n\n${result}`);
+      const result = await handleChat();
+      setSummarize(result);
     } catch (err) {
       alert('Failed to summarize content.');
     }
@@ -143,6 +169,15 @@ export default function Reports() {
             onChange={(e) => setTitle(e.target.value)}
             sx={{ mb: 2 }}
           />
+
+<TextField
+            fullWidth
+            label=""
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            sx={{ mb: 2 }}
+          />
+          {summarize}
           <Box
             contentEditable
             suppressContentEditableWarning
