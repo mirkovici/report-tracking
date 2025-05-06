@@ -1,36 +1,42 @@
-🧠 AI Reports Dashboard
+# 🧠 AI Reports Dashboard
+
 A powerful report management application enhanced with AI capabilities. It enables creating, editing, reordering, and summarizing reports using OpenAI.
 
-✅ Features
-Create and edit reports using the TinyMCE rich text editor
+---
 
-AI-powered summary generation using OpenAI
+## ✅ Features
 
-Search and filter through reports
+- ✍️ Create and edit reports using the **TinyMCE** rich text editor  
+- 🧠 **AI-powered** summary generation using **OpenAI**  
+- 🔍 Search and filter through reports  
+- 🔀 Drag-and-drop reordering using **dnd-kit**  
+- 🗑️ Edit and delete existing reports  
+- 🎨 Modern, responsive UI built with **Material UI**
 
-Drag-and-drop reordering with dnd-kit
+---
 
-Edit and delete existing reports
+## ⚙️ Getting Started
 
-Modern, responsive UI built with Material UI
+1. Install project dependencies:
+   `npm install`
 
-⚙️ Getting Started
-Install project dependencies: npm install
+2. Start both the client and the proxy server:
+   `npm run dev:all`
 
-Start the both instances: npm run dev:all 
+- The client will be available at: [http://localhost:3000](http://localhost:3000)  
+- The proxy server will be running at: [http://localhost:4000](http://localhost:4000)
 
-The client will be available at http://localhost:3000
-The proxy server will be available at http://localhost:4000
+---
 
-🌐 Proxy Server
-To securely communicate with OpenAI, the app uses a local proxy server located in the server folder. This prevents exposing your OpenAI API key directly on the frontend.
+## 🌐 Proxy Server
 
-🔐 Environment Variables
-Create a .env file in the root directory with the following content:
+To securely communicate with OpenAI, the application uses a local proxy server located in the `/server` directory. This ensures that your OpenAI API key is never exposed on the frontend.
 
-ini
-Copy
-Edit
+---
+
+## 🔐 Environment Variables
+
+Create a `.env` file in the root directory and add the following variables:
+
 VITE_TINYMCE_API_KEY=your_tinymce_api_key_here
 OPEN_AI_KEY=your_openai_key_here
-
