@@ -7,4 +7,8 @@ export const NAV_LINKS = [
     to: '/about',
     label: 'About',
   },
+  {
+    to: '/reports',
+    label: 'Reports',
+  },
 ]

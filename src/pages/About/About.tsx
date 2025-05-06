@@ -1,5 +1,4 @@
 import { Heading } from '~/components/Heading'
-
 import * as S from './About.styles'
 
 export function About() {
@@ -12,14 +11,16 @@ export function About() {
 
       <S.Container>
         <p>
-          Recusandae saepe exercitationem, debitis iste in hic enim autem atque assumenda expedita! Est explicabo, earum
-          ea rerum nostrum mollitia ipsam natus? Delectus consequatur ut iusto neque itaque quidem unde architecto?
+          The Report Tracking System was built with the goal of making internal processes smoother, more transparent,
+          and easier to manage. Our mission is to simplify how teams handle data, collaborate, and make informed decisions.
         </p>
-        <blockquote>
-          Laborum, modi tempora! Vero ducimus temporibus assumenda voluptatem deleniti veniam excepturi reiciendis? Quis
-          alias qui nam, temporibus illum accusantium officiis perspiciatis possimus quas quaerat esse velit ipsa
-          voluptatum ducimus laboriosam?
-        </blockquote>
+        <p>
+          Whether you're in product, operations, or management, our system is tailored to help you stay aligned with
+          priorities and track what matters most — all in one place.
+        </p>
+        <p style={{ fontStyle: 'italic', color: '#666' }}>
+          Built with a modern stack, designed for speed and clarity. We're just getting started.
+        </p>
       </S.Container>
     </S.Page>
   )

@@ -1,84 +1,36 @@
-<p align="center">
-  <img src=".github/assets/hero-illustration.svg" alt="A developer siting in front of a computer" />
-</p>
+🧠 AI Reports Dashboard
+A powerful report management application enhanced with AI capabilities. It enables creating, editing, reordering, and summarizing reports using OpenAI.
 
-# Boilerplate: Vite + React
+✅ Features
+Create and edit reports using the TinyMCE rich text editor
 
----
+AI-powered summary generation using OpenAI
 
-This is a [React](https://reactjs.org/) boilerplate using [Vite Builder](https://vitejs.dev/).
+Search and filter through reports
 
-## What is inside?
+Drag-and-drop reordering with dnd-kit
 
-- [Vite](https://vitejs.dev/)
-- [React](https://reactjs.org/)
-- [React-Router](https://reactrouter.com/)
-- [TypeScript](https://typescriptlang.org/)
-- [Styled Components](https://styled-components.com/)
-- [Vitest](https://vitest.dev/)
-- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
-- [Storybook](https://storybook.js.org/)
-- [Eslint](https://eslint.org/)
-- [Prettier](https://prettier.io/)
-- [Husky](https://github.com/typicode/husky)
-- [Lint-Staged](https://github.com/okonet/lint-staged)
-- [Plop](https://plopjs.com/)
+Edit and delete existing reports
 
-## Getting Started
+Modern, responsive UI built with Material UI
 
-Make a copy:
+⚙️ Getting Started
+Install project dependencies: npm install
 
-```
-npx degit adeonir/boilerplate-react-vite my-project
-```
+Start the both instances: npm run dev:all 
 
-Enter the new created folder, initiate a git repository and install the dependencies:
+The client will be available at http://localhost:3000
+The proxy server will be available at http://localhost:4000
 
-```
-cd my-project
-git init
-yarn install
-```
+🌐 Proxy Server
+To securely communicate with OpenAI, the app uses a local proxy server located in the server folder. This prevents exposing your OpenAI API key directly on the frontend.
 
-### Development
+🔐 Environment Variables
+Create a .env file in the root directory with the following content:
 
-Run the development server:
+ini
+Copy
+Edit
+VITE_TINYMCE_API_KEY=your_tinymce_api_key_here
+OPEN_AI_KEY=your_openai_key_here
 
-```
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the page.
-
-### Production
-
-If you like to try the production build, run:
-
-```
-yarn build
-```
-
-And then:
-
-```
-yarn preview
-```
-
-## Commands
-
-- `dev`: runs your application on `localhost:3000`
-- `build`: creates the production build version
-- `preview`: starts a simple server with the build production code
-- `test`: runs vitest in watch mode
-- `test:coverage`: runs vitest returning coverage table
-- `test:ci`: runs vitest once in CI
-- `lint`: runs the linter in all components and pages
-- `format`: runs prettier to format all components and pages
-- `typecheck`: runs the type checker in all components and pages
-- `storybook`: runs storybook on `localhost:6006`
-- `storybook:build`: create the build version of storybook
-- `generate`: runs plop to generate component files
-
----
-
-Made with ♥️ by Adeonir Kohl
